@@ -41,8 +41,6 @@ Gallery.prototype = {
 };
 ```
 
-Event object
-
 Keyboard events made easy.
 --------------------------
 
