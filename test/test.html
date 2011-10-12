@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Eventralize Tests</title>
+		<style type="text/css">
+		body {
+			font-family: helvetica, arial, sans-serif;
+			font-size: 14px;
+		}
+		.keyboardoutput {
+			color: green;
+			font-weight: bold;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<h1>Eventralize Tests</h1>
+		
+		<p>TODO: Actually write some tests ;)</p>
+		
+		<hr />
+		
+		<div id="test">
+			<p>Click these buttons to turn them green:</p>
+			
+			<button class="a">A</button>
+			<button class="b">B</button>
+			<button class="c">C</button>
+
+			<p>Press Shift+4 to test keyboard events.</p>
+			<p class="keyboardoutput">&nbsp;</p>
+			
+			<p>Click this button to remove all event handlers:</p>
+			<button class="unbind">Uneventralize</button>
+		</div>
+		
+		<script src="jquery.min.js"></script>
+		<script src="../jquery.eventralize.js"></script>
+		<script>
+		$(function(){
+			var TEST = {
+				events: {
+					'click button.a, click button.b, click button.c' : 'turnRed',
+					'keydown(shift+4) document' : 'testKeys',
+					'click button.unbind' : 'unbind'
+				},
+				init: function() {
+					this.$elem = $('#test');
+				
+					this.$elem.eventralize(this.events, this, 'test');
+				},
+				unbind: function() {
+					this.$elem.uneventralize(this.events, 'test');
+				},
+				turnRed: function(event) {
+					$(event.target).css('background-color', 'green');
+				},
+				testKeys: function() {
+					$('p.keyboardoutput').text('It worked!');
+				}
+			}
+			TEST.init();
+		});
+		</script>
+	</body>
+</html>
