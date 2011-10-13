@@ -6,7 +6,7 @@ Event handling done right.
 
 Provide a hash of mouse/keyboard events, selectors and function names - Eventralize will do the rest.
 
-```
+``` js
 $('#element').eventralize({
   'event'          : 'functionName',
   'event selector' : 'functionName',
@@ -19,7 +19,7 @@ Centralize your events.
 
 Keep your event handling logic in one place and enable or disable everything with only a single line.
 
-```
+``` js
 Gallery.prototype = {
     events: {
       'dblclick img' : 'zoom',
@@ -46,7 +46,7 @@ Keyboard events made easy.
 
 Bind individual key presses or combinations at the same time as your mouse events.
 
-```
+``` js
 events: {
   'click .money, keydown(shift+4) document' : 'money'
 },
@@ -63,7 +63,7 @@ Bind locally or globally.
 
 Bind events to the element or delegate based on your selector—or bind to the document, window or body.
 
-```
+``` js
 events: {
   'click' : 'focus',
   'click .toolbar .save' : 'save',
@@ -77,7 +77,7 @@ Namespace everything at once.
 
 Provide a namespace as the optional third parameter and all of your events will be correctly namespaced.
 
-```
+``` js
 Gallery.prototype = {
     events: {
       ...
@@ -97,7 +97,7 @@ Full event functionality
 
 All functions are automatically passed the 'event' object so you don't have to repeat yourself.
 
-```
+``` js
 zoom: function(event) {
   event.preventDefault();
   event.stopPropagation();
@@ -110,7 +110,7 @@ How to Build
 
 The code is compiled using CoffeeScript and minified using UglifyJS using the following commands:
 
-```
+``` bash
 coffee -c jquery.eventralize.coffee
 uglifyjs -o jquery.eventralize.min.js jquery.eventralize.js
 ````
