@@ -1,5 +1,5 @@
 /*
-  jQuery Eventralize v0.1
+  jQuery Eventralize v0.11
   Copyright 2011, Mark Dalgleish
   
   This content is released under the MIT License
@@ -58,7 +58,7 @@
                     case 'function':
                       func = functionName;
                   }
-                  return func != null ? func.call(context, event) : void 0;
+                  return func != null ? func.call(context, event, this) : void 0;
                 };
                 switch (eventSelector) {
                   case void 0:

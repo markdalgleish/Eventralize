@@ -1,5 +1,5 @@
 ###
-jQuery Eventralize v0.1
+jQuery Eventralize v0.11
 Copyright 2011, Mark Dalgleish
 
 This content is released under the MIT License
@@ -54,7 +54,7 @@ delegateHelper = (isDelegating, collection, eventHash, namespace, context) ->
 											func = context[functionName]
 									when 'function' then func = functionName
 
-								func?.call(context, event)
+								func?.call(context, event, @)
 								
 							#Delegate/bind
 							switch eventSelector
