@@ -1,5 +1,5 @@
 /*
-  jQuery Eventralize v0.11
+  jQuery Eventralize v0.2
   Copyright 2011, Mark Dalgleish
   
   This content is released under the MIT License
@@ -49,6 +49,10 @@
               if (isDelegating === true) {
                 handleEvent = function(event) {
                   var func;
+                  $.extend(event, {
+                    eventralize: true,
+                    source: this
+                  });
                   switch (typeof functionName) {
                     case 'string':
                       if (!(keyString != null) || (keyString != null) && isPressingKeys(keyString, event) === true) {
@@ -58,7 +62,7 @@
                     case 'function':
                       func = functionName;
                   }
-                  return func != null ? func.call(context, event, this) : void 0;
+                  return func != null ? func.call(context, event) : void 0;
                 };
                 switch (eventSelector) {
                   case void 0:

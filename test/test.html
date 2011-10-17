@@ -54,7 +54,7 @@
 					this.$elem.uneventralize(this.events, 'test');
 				},
 				turnRed: function(event) {
-					$(event.target).css('background-color', 'green');
+					$(event.source).css('background-color', 'green');
 				},
 				testKeys: function() {
 					$('p.keyboardoutput').text('It worked!');

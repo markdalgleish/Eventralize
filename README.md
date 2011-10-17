@@ -33,7 +33,7 @@ Gallery.prototype = {
     destroy: function() {
       this.$elem.uneventralize(this.events);
     },
-    //All functions are automatically passed the 'event' object
+    //All functions are passed an extended 'event' object
     zoom  : function(event) { ... },
     close : function(event) { ... },
     next  : function(event) { ... },
@@ -95,13 +95,16 @@ Gallery.prototype = {
 Full event functionality
 ------------------------
 
-All functions are automatically passed the 'event' object so you don't have to repeat yourself.
+All functions are passed an extended 'event' object so you don't have to repeat yourself.
 
 ``` js
 zoom: function(event) {
   event.preventDefault();
   event.stopPropagation();
-  var index = $(event.target).index();
+
+  //New event properties:
+  event.eventralize; //True
+  event.source; //The element matching the selector
 }
 ```
 

@@ -1,5 +1,5 @@
 ###
-jQuery Eventralize v0.11
+jQuery Eventralize v0.2
 Copyright 2011, Mark Dalgleish
 
 This content is released under the MIT License
@@ -48,13 +48,18 @@ delegateHelper = (isDelegating, collection, eventHash, namespace, context) ->
 						if isDelegating is true
 							#Call the function in the supplied context
 							handleEvent = (event) ->
+								#Extend the standard jQuery event object
+								$.extend event,
+									eventralize: true
+									source: @
+								
 								switch typeof functionName
 									when 'string'
 										if !keyString? or keyString? and isPressingKeys(keyString, event) is true
 											func = context[functionName]
 									when 'function' then func = functionName
 
-								func?.call(context, event, @)
+								func?.call(context, event)
 								
 							#Delegate/bind
 							switch eventSelector
