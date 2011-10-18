@@ -50,8 +50,7 @@
                 handleEvent = function(event) {
                   var func;
                   $.extend(event, {
-                    eventralize: true,
-                    source: this
+                    eventralize: true
                   });
                   switch (typeof functionName) {
                     case 'string':

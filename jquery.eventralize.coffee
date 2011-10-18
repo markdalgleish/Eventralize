@@ -51,7 +51,6 @@ delegateHelper = (isDelegating, collection, eventHash, namespace, context) ->
 								#Extend the standard jQuery event object
 								$.extend event,
 									eventralize: true
-									source: @
 								
 								switch typeof functionName
 									when 'string'

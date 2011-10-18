@@ -99,12 +99,11 @@ All functions are passed an extended 'event' object so you don't have to repeat 
 
 ``` js
 zoom: function(event) {
+  event.eventralize; //True
+  
   event.preventDefault();
   event.stopPropagation();
-
-  //New event properties:
-  event.eventralize; //True
-  event.source; //The element matching the selector
+  event.currentTarget; //The element matching the selector
 }
 ```
 
