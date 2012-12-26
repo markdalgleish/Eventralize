@@ -41,6 +41,21 @@ Gallery.prototype = {
 };
 ```
 
+Note: While generally discouraged, it's possible to use inline functions or function variables rather
+a string with the function name. This may be useful for classes that consist almost entirely of event handlers,
+or for event handlers with only a couple lines of code. For example:
+
+``` js
+Gallery.prototype = {
+    events: {
+        'dblclick img' : function() { ... },
+        ...
+    }
+    ...
+}
+```
+
+
 Keyboard events made easy.
 --------------------------
 
