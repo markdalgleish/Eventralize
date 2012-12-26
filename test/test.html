@@ -41,7 +41,7 @@
 		$(function(){
 			var TEST = {
 				events: {
-					'click button.a, click button.b, click button.c' : 'turnRed',
+					'click button.a, click button.b, click button.c' : 'turnGreen',
 					'keydown(shift+4) document' : 'testKeys',
 					'click button.unbind' : 'unbind'
 				},
@@ -53,7 +53,7 @@
 				unbind: function() {
 					this.$elem.uneventralize(this.events, 'test');
 				},
-				turnRed: function(event) {
+				turnGreen: function(event) {
 					$(event.currentTarget).css('background-color', 'green');
 				},
 				testKeys: function() {
